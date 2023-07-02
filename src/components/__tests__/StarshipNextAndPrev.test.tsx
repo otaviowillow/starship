@@ -97,4 +97,18 @@ describe('StarshipNextAndPrev', () => {
     const nextButton = screen.getByText('Next page');
     expect(nextButton).toBeDisabled();
   });
+
+  it('displays an error message when an error occurs', () => {
+    (useQuery as jest.Mock).mockReturnValue({
+      isLoading: false,
+      error: true,
+      data: null,
+      queryKey: ['starships', 1],
+      queryFn: mockFetchStarships,
+    });
+
+    render(<StarshipNextAndPrev />);
+
+    expect(screen.getByText('However, you have encountered an error. Try refreshing the page.')).toBeInTheDocument();
+  });
 });

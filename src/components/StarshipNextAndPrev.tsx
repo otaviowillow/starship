@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom';
 import { fetchStarships } from '../api';
 import { useQuery } from '@tanstack/react-query';
 import { useCurrentPage, usePaginationActions } from '../contexts/usePagination';
