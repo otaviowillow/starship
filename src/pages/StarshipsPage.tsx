@@ -5,7 +5,17 @@ import StarshipNextAndPrev from '../components/StarshipNextAndPrev';
 import DefaultLayout from '../styled-components/DefaultLayout';
 import Typography from '../styled-components/Typography';
 
-const queryClient = new QueryClient();
+const twentyFourHoursInMs = 1000 * 60 * 60 * 24;
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: false,
+      retry: false,
+      staleTime: twentyFourHoursInMs,
+    },
+  },
+});
 
 const StarshipsPage = () => {
   return (

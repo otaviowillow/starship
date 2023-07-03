@@ -16,16 +16,10 @@ const StarshipNextAndPrev = () => {
 
   const handleNextPage = () => setNextPage();
 
-  if (error)
-    return (
-      <div className="flex flex-col justify-center items-center h-96">
-        <Typography variant="heading2">The possibility of unsuccessfully navigating on this page is approximately 3,720 to 1.</Typography>
-        <Typography variant="paragraph">However, you have encountered an error. Try refreshing the page.</Typography>
-      </div>
-    );
+  if (error) return null;
 
   return (
-    <div className="p-10 flex justify-center w-screen">
+    <div className="p-10 flex justify-center">
       <Button variant="secondary" onClick={handlePrevPage} disabled={isLoading || !data?.previous}>
         Previous page
       </Button>
